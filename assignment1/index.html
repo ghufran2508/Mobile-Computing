@@ -18,7 +18,7 @@
   <body>
     <div class="container">
       <div class="row" style="text-align: center">
-        <div class="col-12" style="background-color: blueviolet">
+        <div class="col-12" style="background-color: blueviolet; color:aliceblue">
           <h1>GITHUB OVERVIEW</h1>
         </div>
 
@@ -30,15 +30,13 @@
               This is a simple and basic overview for newbies.
             </p>
 
-            <div id="2" style="display: none" class="p-5 m-5">
-                image data
-            </div>
+            <div id="2" style="display: none" class="p-5 m-5">image data</div>
 
             <span id="end" style="display: none" class="p-5 m-5">
               WELL DONE!!! You have completed your tutorial
             </span>
 
-            <div class="btn btn-success" onclick="changeSlide()">OK</div>
+            <div class="btn btn-success" onclick="changeSlide()">NEXT</div>
           </div>
         </div>
       </div>
@@ -53,32 +51,40 @@
 
   <script>
     function changeSlide() {
-      var nodeList = document.querySelectorAll("*"); // use an appropriate filter
-      var array = Array.prototype.slice.call(nodeList, 0);
-      var elements = array.filter(function (element) {
-        return window.getComputedStyle(element).display === "block";
-      });
-      var ids = elements.map(function (element) {
-        return element.id;
-      });
-      var displayBlockId = ids.filter((str) => {
-        if (str != "") return str;
-      });
-      displayBlockId = displayBlockId[0];
+      if (document.getElementsByClassName("btn")[0].innerHTML == "DONE") {
+        location.href = "https://github.com/";
 
-      if (displayBlockId == "end") {
       } else {
-        displayBlockId = parseInt(displayBlockId, 10);
-        var newDisplayBlock = displayBlockId + 1;
-        newDisplayBlock = newDisplayBlock.toString();
+        var nodeList = document.querySelectorAll("*"); // use an appropriate filter
+        var array = Array.prototype.slice.call(nodeList, 0);
+        var elements = array.filter(function (element) {
+          return window.getComputedStyle(element).display === "block";
+        });
+        var ids = elements.map(function (element) {
+          return element.id;
+        });
+        var displayBlockId = ids.filter((str) => {
+          if (str != "") return str;
+        });
+        displayBlockId = displayBlockId[0];
 
-        document.getElementById(displayBlockId.toString()).style.display =
-          "none";
-
-        if (document.getElementById(newDisplayBlock) == null) {
-          document.getElementById("end").style.display = "block";
+        if (displayBlockId == "end") {
         } else {
-          document.getElementById(newDisplayBlock).style = { display: "block" };
+          displayBlockId = parseInt(displayBlockId, 10);
+          var newDisplayBlock = displayBlockId + 1;
+          newDisplayBlock = newDisplayBlock.toString();
+
+          document.getElementById(displayBlockId.toString()).style.display =
+            "none";
+
+          if (document.getElementById(newDisplayBlock) == null) {
+            document.getElementById("end").style.display = "block";
+            document.getElementsByClassName("btn")[0].innerHTML = "DONE";
+          } else {
+            document.getElementById(newDisplayBlock).style = {
+              display: "block",
+            };
+          }
         }
       }
     }
