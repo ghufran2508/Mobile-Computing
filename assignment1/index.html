@@ -35,7 +35,7 @@
         </div>
 
         <div class="row justify-content-center" id="set_block">
-          <div class="col-12 p-5 m-5 border border-dark">
+          <div class="col-12 p-5 m-5 border border-dark" style="height: 700px; position: relative;">
             <p style="display: block" id="1">
               Description: I will show you how to use github.
               <br />
@@ -57,11 +57,55 @@
               <img src="./Images/download_git.png">
             </div>
 
+            <div id="4" style="display: none">
+              <p class="description">
+                Now setup git on you system. <br />
+                Open directory where you want to start you project. <br />
+                You can open that directory from terminal(vs code) and then type <strong>git init</strong></strong>
+              </p>
+              <img src="./Images/git_init.png">
+            </div>
+
+            <div id="5" style="display: none">
+              <p class="description">
+                Create a new file index.html.
+              </p>
+              <img src="./Images/create_file.png">
+            </div>
+
+            <div id="6" style="display: none">
+              <p class="description">
+                You can see changes you have made using <strong>git status</strong> <br />
+                This will give you a small overview of which files are changed or created.
+              </p>
+              <img src="./Images/git_status.png">
+            </div>
+
+            <div id="7" style="display: none">
+              <p class="description">
+                Then after creating/chaning a file. You have to add that file to the package.
+                This paackage is just like a container. The container will contain all the new changes. <br />
+                That will be send to the github repository. (Also check status here.)
+              </p>
+              <img src="./Images/git_add(2).png">
+            </div>
+
+            <div id="8" style="display: none">
+              <p class="description">
+                Then after the files are added to container. <br />
+                You have to add meaningful message to it.
+              </p>
+              <img src="./Images/git_commit.png">
+            </div>
+
             <span id="end" style="display: none" class="p-5 m-5">
               WELL DONE!!! You have completed your tutorial
             </span>
 
-            <div class="btn btn-success" onclick="changeSlide()">NEXT</div>
+            <div class="btn btn-success" onclick="changeSlide()"
+              style="position: absolute; bottom: 5%; left:45%; right:45%;">
+              NEXT
+            </div>
           </div>
         </div>
       </div>
